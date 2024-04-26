@@ -13,24 +13,20 @@ function init() {
     themebtn.addEventListener("click", function () {
         theme++;
         handleTheme()
-        setTimeout(() => {
-            box.style.opacity = "0";
-        }, 2000)
     });
 
     handleTheme()
     toggler.onclick = rmFuncs
     summoner.onclick = showFuncs
     settingsSummoner.onclick = toggleSettings
+    saver.onclick = toggleSettings
     bar.onclick = rmFuncs
     playbtn.onclick = handlePlay
     pausebtn.onclick = handlePause
     action.onchange = ({ target }) => {
         settings.action = target.value
         localStorage.action = target.value
-        target.value == 'script' ?
-            theScript.classList.remove('d-none')
-            : theScript.classList.add('d-none')
+        testValue(target.value)
     }
 
     const changeScript = () => {
@@ -176,10 +172,25 @@ function init() {
             target.parent.classList.add('d-none')
         }
     }
-    theScript.value = localStorage.lastScript || ''
-    action.value = localStorage.action || 'ring'
-    settings.action = localStorage.action || 'ring'
-    action.value == 'script' ?
-        theScript.classList.remove('d-none')
-        : theScript.classList.add('d-none')
+    const defScr = localStorage.lastScript === '' ? '' : defaultScript
+    const value = localStorage.action || 'ring'
+    theScript.value = localStorage.lastScript || defScr
+    action.value = value
+    settings.action = value
+
+    tester.onclick = () => actions.script()
+
+    testValue(value)
+
+    function testValue(value) {
+        value == 'ring' ?
+            (() => {
+                theScript.classList.add('d-none')
+                tester.classList.add('d-none')
+            })()
+            : (() => {
+                theScript.classList.remove('d-none')
+                tester.classList.remove('d-none')
+            })()
+    }
 }

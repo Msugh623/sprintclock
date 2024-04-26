@@ -11,7 +11,7 @@ const actions = {
             try {
                 scriptSrc()
             } catch (error) {
-                alert(`ERROR: ${error} @ custom script`)
+                alert(`ERROR: ${error} @script.js `)
             }
         }, 50)
     }
