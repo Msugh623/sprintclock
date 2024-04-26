@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light" id="clscheme">
+    <title>ET Time</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap@5.2.0.min.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <script defer src="./assets/domSelections.js"></script>
+    <script defer src="./assets/variables.js"></script>
+    <script defer src="./assets/media.js"></script>
+    <script defer src="./assets/settings.js"></script>
+    <script defer src="./assets/handlers.js"></script>
+    <script defer src="./assets/executor.js"></script>
+    <script defer src="./assets/init.js"></script>
+    <script defer src="./assets/app.js"></script>
+</head>
+
+<body id="body" class="">
+    <input type="button" value="Change Theme" id="themeBtn" class="fixed-top" autofocus autocomplete="url"
+        width="100vw">
+
+    <!-- Clock Display -->
+    <div class="container-fluid p-1 p-md-3" id="ctr">
+        <div class="display">
+            <div class="card row no-gutters border" id="card">
+                <h1 class="card-text col-10">
+                    <div id="hours" class="time-box"></div><span class="seperator">:</span>
+                    <div id="minutes" class="time-box"></div><span class="seperator">:</span>
+                    <div id="seconds" class="time-box"></div>
+                </h1>
+                <h3 id="date" class="my-auto mr-auto col-2">
+                    <div class="card-text date" id="day">Tue</div>
+                    <div class="card-text date" id="dayMonth">03/05</div>
+                    <div class="card-text date" id="year">2023</div>
+                </h3>
+            </div>
+        </div>
+
+        <!-- Alarm Display -->
+        <div class="display d-none">
+            <div class="card row no-gutters border" id="card">
+                <h1 class="card-text col-10" id="alm-time">
+                    <div id="hours" class="time-box"></div>
+                    <span class="seperator">:</span>
+                    <div id="minutes" class="time-box"></div>
+                    <span class="seperator">:</span>
+                    <div id="seconds" class="time-box"></div>
+                </h1>
+                <h3 id="alm-date" class="my-auto mr-auto col-2">
+                    <div class="card-text date" id="day">Tue</div>
+                    <div class="card-text date" id="dayMonth">03/05</div>
+                    <div class="card-text date" id="year">2023</div>
+                </h3>
+            </div>
+            <div id="al-text" class="rounded mb-2 p-2">
+
+            </div>
+            <div class="d-flex">
+                <input type="datetime-local" id="datetime" class="form-control bg-none">
+                <button class="btn btn-primary" id="setter">Set</button>
+            </div>
+        </div>
+
+        <!-- Timout Display -->
+        <div class="display d-none">
+            <div class="card row no-gutters border" id="card">
+                <h1 class="card-text col-12 pe-0" id="tmh1">
+                    <div id="hours" class="my-auto time-boxaf">
+                        00 <div class="small">Days</div>
+                    </div>
+                    <span class="my-auto seperator">:</span>
+                    <div id="hours" class="my-auto time-boxaf">
+                        00 <div class="small">Hours</div>
+                    </div>
+                    <span class="my-auto seperator">:</span>
+                    <div id="minutes" class="my-auto time-boxaf">
+                        00 <div class="small">Minutes</div>
+                    </div>
+                    <span class="my-auto seperator">:</span>
+                    <div id="seconds" class="my-auto time-boxaf">
+                        00 <div class="small">Seconds</div>
+                    </div>
+                    <div class="d-flex">
+                        <div id="seconds" class="my-auto time-boxaf ms-auto small pe-4 pb-4"> 0000</div>
+                    </div>
+                </h1>
+            </div>
+            <div class="d-flex">
+                <div class="d-flex m-auto">
+                    <input type="number" id="hours" name="days" placeholder="31 - 1  Days"
+                        class="form-control bg-none inp">
+                    <input type="number" id="hours" name="hrs" placeholder="23 hours" class="form-control bg-none inp">
+                    <input type="number" id="minutes" name="mnt" placeholder="59 minutes"
+                        class="form-control bg-none inp">
+                    <input type="number" id="seconds" name="scnd" placeholder="59 seconds"
+                        class="form-control bg-none inp">
+                </div>
+                <button class="btn btn-primary me-1" id="resetter">Reset</button>
+                <button class="btn btn-primary" id="starter">Start</button>
+            </div>
+        </div>
+
+        <!-- Timer Display -->
+        <div class="display d-none">
+            <div class="card row no-gutters border" id="card">
+                <h1 class="card-text col-12 pe-0" id="tmerh1">
+                    <div id="hours" class="my-auto time-boxaf">
+                        00 <div class="small">Days</div>
+                    </div>
+                    <span class="my-auto seperator">:</span>
+                    <div id="hours" class="my-auto time-boxaf">
+                        00 <div class="small">Hours</div>
+                    </div>
+                    <span class="my-auto seperator">:</span>
+                    <div id="minutes" class="my-auto time-boxaf">
+                        00 <div class="small">Minutes</div>
+                    </div>
+                    <span class="my-auto seperator">:</span>
+                    <div id="seconds" class="my-auto time-boxaf">
+                        00 <div class="small">Seconds</div>
+                    </div>
+                    <div class="d-flex">
+                        <div id="seconds" class="my-auto time-boxaf small ms-auto pe-5 pb-3"> 0000</div>
+                    </div>
+                </h1>
+            </div>
+            <div class="d-flex">
+                <div id="stamps">
+
+                </div>
+                <div class="ms-auto d-flex">
+                    <div>
+                        <button class="btn btn-primary me-1" id="stamper">Stamp</button>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary me-1" id="resettertm">Reset</button>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" id="startertm">Start</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Options!, hidden onload -->
+        <nav id="options" class="d-none">
+            <div class="d-flex">
+                <div class="btn btn-danger bg-none levBl" id="toggler">
+                    X
+                </div>
+                <div class="m-auto shadow-sm border p-3 rounded">
+                    <button class="btn btn-primary bg-none opts">Clock</button>
+                    <button class="btn btn-primary bg-none opts">Alarm</button>
+                    <button class="btn btn-primary bg-none opts">Timeout</button>
+                    <button class="btn btn-primary bg-none opts">Timer</button>
+                </div>
+            </div>
+        </nav>
+
+        <nav id="settings" class="d-none">
+            <div class="d-flex">
+                <div class="m-auto shadow-sm border p-3 rounded">
+                    <div class="d-flex">
+                        <div class="">Timeout Action</div>
+                        <select class="form-control" id="action">
+                            <option class="bg-none text-white" value="ring">Ring</option>
+                            <option class="bg-none text-white" value="script">Execute Script</option>
+                        </select>
+                    </div>
+                    <div class="floating-form d-flex">
+                        <textarea id="theScript" spellcheck="false" class="form-control mt-1"
+                            placeholder="Script to execute... language: JS" cols="30" rows="8" ></textarea>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Levetatin controls -->
+
+        <!-- Show Options -->
+        <div class="btn btn-primary bg-none levBl" id="summoner">
+            /\
+        </div>
+        <div class="btn btn-primary bg-none levBl" id="settingsSummoner">
+            ⚙
+        </div>
+
+        <!-- Play -->
+        <div class="btn btn-primary bg-none levBr d-none" id="play">
+            ▶
+        </div>
+        <!-- Pause -->
+        <div class="btn btn-primary bg-none levBr" id="pause">
+            <b>I I</b>
+        </div>
+    </div>
+
+</body>
+
+</html>

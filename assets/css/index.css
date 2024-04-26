@@ -1,0 +1,192 @@
+body div {
+    color: inherit !important;
+}
+
+h1 {
+    width: fit-content;
+    padding: 0px;
+    margin: 0p;
+}
+
+#date {
+    position: relative;
+    right: 2vh;
+    display: flex;
+    flex-direction: column;
+    width: 12%;
+    border-left: 1px solid #5e6c72a9;
+    padding-left: 5px;
+    margin-block: auto;
+}
+
+#alm-date {
+    position: relative;
+    right: 2vh;
+    display: flex;
+    flex-direction: column;
+    width: 12%;
+    border-left: 1px solid #5e6c72a9;
+    padding-left: 5px;
+    margin-block: auto;
+}
+
+#dayMonth {
+    font-size: 3.5vw;
+}
+
+.date {
+    display: flex;
+    flex-direction: row;
+    font-size: 4.2vw;
+    color: inherit;
+}
+
+body {
+    cursor: default;
+}
+
+.card {
+    margin: 10vh auto 2vh auto;
+    transition: all, 0.3s;
+    display: flex;
+    flex-direction: row;
+    cursor: default;
+}
+
+.time-box {
+    position: relative;
+    font-size: 17.5vw;
+    display: inline-flex;
+}
+
+.time-boxmd {
+    position: relative;
+    font-size: 17.5vw;
+    display: inline-flex;
+}
+
+.time-boxaf {
+    position: relative;
+    font-size: 16.5vw;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.seperator {
+    font-size: 18vw;
+}
+
+.greetings {
+    font-size: 2vw;
+    padding: auto;
+    font-weight: 400;
+    text-align: center;
+}
+
+#themeBtn {
+    transition: all, .4s;
+    background-color: #041a30;
+    color: #cdd3da;
+    border: none;
+    height: 1.5vw;
+    font-size: 4vw;
+    outline: none;
+    border: none;
+    min-width: 100vw;
+}
+
+
+#themeBtn:hover,
+#themeBtn:active {
+    background-color: #e2eaf3;
+    color: #16191d;
+    height: 4vh;
+    font-size: 100%;
+    cursor: pointer;
+}
+
+body {
+    color: #191f25;
+    transition: all, .3s;
+}
+
+.container-fluid {
+    position: sticky;
+    top: 30px;
+}
+
+@media (max-width: 500px) {
+    #dayMonth {
+        font-size: 3vw;
+    }
+
+    .date {
+        display: flex;
+        flex-direction: row;
+        font-size: 4vw;
+        color: inherit;
+    }
+
+}
+
+#box {
+    transition: all, .5s;
+    opacity: 0
+}
+
+.levBl {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+}
+
+#settingsSummoner {
+    left: 70px;
+}
+
+.levBr {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+}
+
+.btn {
+    color: inherit !important;
+}
+
+.btn:hover {
+    color: #efefef !important;
+}
+
+.border {
+    border-color: #797979 !important;
+}
+
+.glow-red {
+    box-shadow: inset 0px 0px 40px 30px #0044ff;
+    min-height: 100vh;
+    max-height: 100vh;
+    height: 100vh;
+}
+
+.time-boxaf .small {
+    position: relative;
+    display: block !important;
+    font-size: 0.1em !important;
+    margin: 0px 0px 0px 20px;
+    opacity: .8;
+    bottom: 5px;
+}
+
+option{
+    background-color: #191f25!important;
+    color: #efefef!important;
+}
+option:hover{
+    background-color: #0080ff!important;
+    color: #efefef!important;
+}
+
+textarea{
+    font-family: monospace!important;
+}

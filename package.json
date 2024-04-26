@@ -1,0 +1,11 @@
+{
+  "name": "sprint-time",
+  "version": "1.0.0",
+  "description": "A Clock app",
+  "main": "index.html",
+  "scripts": {
+    "deploy": "firebase deploy"
+  },
+  "author": "chia ernest",
+  "license": "ISC"
+}
