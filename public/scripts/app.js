@@ -1,6 +1,3 @@
-// Setup necessary functionality
-init()
-
 function setFunction({ target }, i) {
     handlePause()
     document.getElementById('ctr').classList.remove('px-md-5')
@@ -23,6 +20,7 @@ function showFuncs() {
     bar.classList.remove('d-none')
     summoner.classList.add('d-none')
 }
+
 function rmFuncs() {
     bar.classList.add('d-none')
     summoner.classList.remove('d-none')
@@ -32,6 +30,10 @@ function handlePause() {
     clearInterval(interval)
     pausebtn.classList.add('d-none')
     playbtn.classList.remove('d-none')
+    setTimeout(() => {
+        toast.innerHTML = ''
+    });
+    isPlaying = false
 }
 
 function handlePlay() {
@@ -41,4 +43,8 @@ function handlePlay() {
     }, 50);
     playbtn.classList.add('d-none')
     pausebtn.classList.remove('d-none')
+    setTimeout(() => {
+        toast.innerHTML = ''
+    }); 
+    isPlaying = true
 }

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="html">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light" id="clscheme">
-    <title>ET Time</title>
+    <title>Clock</title>
     <link rel="stylesheet" href="/css/bootstrap@5.2.0.min.css">
     <link rel="stylesheet" href="/css/index.css">
     <script defer src="/scripts/domSelections.js"></script>
@@ -86,22 +86,61 @@
                         00 <div class="small">Seconds</div>
                     </div>
                     <div class="d-flex">
-                        <div id="seconds" class="my-auto time-boxaf ms-auto small pe-4 pb-4"> 0000</div>
+                        <div id="seconds" class="my-auto time-boxaf ms-auto small pe-3 pe-sm-4 pb-4"> 0000</div>
                     </div>
                 </h1>
             </div>
-            <div class="d-flex opt-vanishes">
-                <div class="d-flex m-auto">
-                    <input type="number" id="hours" name="days" placeholder="31 - 1  Days"
-                        class="form-control bg-none inp">
-                    <input type="number" id="hours" name="hrs" placeholder="23 hours" class="form-control bg-none inp">
-                    <input type="number" id="minutes" name="mnt" placeholder="59 minutes"
-                        class="form-control bg-none inp">
-                    <input type="number" id="seconds" name="scnd" placeholder="59 seconds"
-                        class="form-control bg-none inp">
+            <div id="toast">
+
+            </div>
+            <div class="d-flex opt-vanishes row">
+                <div class="m-auto col-sm-9 col-md-10 g-0">
+                    <div class="row">
+                        <label class="col-3 px-0 px-sm-1 px-md-2 pb-0 pb-sm-1 d-flex flex-column  form-control">
+                            <small class="small text-truncate">
+                                Days
+                            </small>
+                            <input type="number" id="hours" name="days" placeholder="31 - 1  Days"
+                                class="border-0 bg-none inp">
+                        </label>
+                        <label class="col-2 px-0 px-sm-1 px-md-2 pb-0 pb-sm-1 d-flex flex-column  form-control">
+                            <small class="small text-truncate">
+                                Hours
+                            </small>
+                            <input type="number" id="hours" name="hrs" placeholder="23 hours"
+                                class="border-0 bg-none inp">
+                        </label>
+                        <label class="col-2 px-0 px-sm-1 px-md-2 pb-0 pb-sm-1 d-flex flex-column  form-control">
+                            <small class="small text-truncate">
+                                Minutes
+                            </small>
+                            <input type="number" id="minutes" name="mnt" placeholder="59 minutes"
+                                class="border-0 bg-none inp">
+                        </label>
+                        <label class="col-2 px-0 px-sm-1 px-md-2 pb-0 pb-sm-1 d-flex flex-column  form-control">
+                            <small class="small text-truncate">
+                                Seconds
+                            </small>
+                            <input type="number" id="seconds" name="scnd" placeholder="59 seconds"
+                                class="border-0 bg-none inp">
+                        </label>
+                        <label class="col-3 px-0 px-sm-1 px-md-2 pb-0 pb-sm-1 d-flex flex-column form-control">
+                            <small class="small text-truncate">
+                                Schedule Timeout Start
+                            </small>
+                            <input type="datetime-local" id="schedule" name="schdu" title="Schedule Start"
+                                placeholder="Starts By" class="border-0 bg-none inp">
+                        </label>
+                    </div>
                 </div>
-                <button class="btn btn-primary me-1" id="resetter">Reset</button>
-                <button class="btn btn-primary" id="starter">Start</button>
+                <div class="col-sm-3 col-md-2 g-0">
+                    <div class="d-flex">
+                        <div class="ms-auto mt-2 mt-sm-0">
+                            <button class="btn btn-primary me-1" id="resetter">Reset</button>
+                            <button class="btn btn-primary" id="starter">Start</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -125,7 +164,7 @@
                         00 <div class="small">Seconds</div>
                     </div>
                     <div class="d-flex">
-                        <div id="seconds" class="my-auto time-boxaf small ms-auto pe-5 pb-3"> 0000</div>
+                        <div id="seconds" class="my-auto time-boxaf small ms-auto pe-3 pe-sm-4 pb-3"> 0000</div>
                     </div>
                 </h1>
             </div>
@@ -172,9 +211,14 @@
                             <option class="bg-none text-white" value="script">Execute Script</option>
                         </select>
                     </div>
-                    <div class="floating-form d-flex">
+                    <div class=" d-flex">
                         <textarea id="theScript" spellcheck="false" class="form-control mt-1"
-                            placeholder="Script to execute... language: JS" cols="30" rows="15" ></textarea>
+                            placeholder="Script to execute... language: JS" cols="30" rows="15"></textarea>
+                    </div>
+                    <div class="d-flex">
+                        <a href="/docs.html" class="ms-auto ">
+                            <div>Go to Documentation</div>
+                        </a>
                     </div>
                     <div class="d-flex">
                         <button class="btn-primary btn ms-auto me-2 mt-2" id="saver">Save</button>

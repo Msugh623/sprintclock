@@ -800,17 +800,17 @@ progress {
 
 .col-2 {
     flex: 0 0 auto;
-    width: 16.66666667%
+    width: 16.66666667%!important
 }
 
 .col-3 {
     flex: 0 0 auto;
-    width: 25%
+    width: 25%!important
 }
 
 .col-4 {
     flex: 0 0 auto;
-    width: 33.33333333%
+    width: 33.33333333%!important
 }
 
 .col-5 {

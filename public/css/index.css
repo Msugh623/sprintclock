@@ -2,8 +2,8 @@ body div {
     color: inherit !important;
 }
 
-#body .src {
-    background-color: #7f8a9b10;
+#body .src,
+.btn.bg-none {
     backdrop-filter: blur(120px);
 }
 
@@ -75,6 +75,24 @@ body {
     font-size: 16.5vw;
     display: inline-flex;
     flex-direction: column;
+}
+
+@media (max-width:1100px) {
+    .time-boxaf {
+        position: relative;
+        font-size: 16vw;
+        display: inline-flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width:500px) {
+    .time-boxaf {
+        position: relative;
+        font-size: 15vw;
+        display: inline-flex;
+        flex-direction: column;
+    }
 }
 
 .seperator {
@@ -222,9 +240,14 @@ textarea {
     opacity: 0;
 }
 
-html:hover .opt-vanishes,
-html:hover .levBl,
-html:hover .levBr {
+.html:hover .opt-vanishes,
+.html:hover .levBl,
+.html:hover .levBr {
     transition: all, .3s;
     opacity: 1 !important;
+}
+
+.inp{
+    max-width: 100%;
+    border: none;
 }

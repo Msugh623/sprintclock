@@ -1,27 +1,22 @@
 
 function handleTheme() {
     if (theme % 2 === 0) {
+        colorScheme.setAttribute('content', 'dark')
         body.style.backgroundColor = "#031422";
-
         body.style.color = "#e3e8ee";
         card.style.border = "1px solid #dbe3ee70";
-
         themebtn.style.backgroundColor = "#e2eaf3";
         themebtn.style.color = "#191f25";
-        colorScheme.setAttribute('content', 'dark')
     } else {
+        colorScheme.setAttribute('content', 'light')
         body.style.backgroundColor = "#e3e8ee";
         body.style.color = "#191f25";
-
         card.style.border = "1px solid #30343b44";
-
         themebtn.style.backgroundColor = "#031422";
         themebtn.style.color = "#e3e8ee";
-        colorScheme.setAttribute('content', 'light')
     }
     localStorage.theme = theme
 }
-
 
 function handleDate() {
     let days = date.getDay();
@@ -129,6 +124,9 @@ function handleAlarm() {
 function handleTimeOut() {
     let calcDate = date - (50)
     calcDate = calcDate < 0 ? 0 : calcDate
+    const schedule = new Date(timeoutObj.schdu || null)
+    const currentDate = new Date()
+    const timeDiff = schedule - currentDate
 
     let days = setDate.getDate() - 1;
     let hours = setDate.getHours();
@@ -136,21 +134,33 @@ function handleTimeOut() {
     let seconds = setDate.getSeconds();
     let milliseconds = setDate.getMilliseconds()
 
-    !(hours == 0 && minutes == 0 && seconds == 0 && milliseconds == 0 && days == 0) ?
+    timeDiff < 1 ?
         (() => {
-            setDate = new Date(setDate - (50))
+
+            !(hours == 0 && minutes == 0 && seconds == 0 && milliseconds == 0 && days == 0) ?
+                (() => {
+                    setDate = new Date(setDate - (50))
+                })() :
+                (() => {
+                    if (!Number(timeoutObj.days) && !Number(timeoutObj.hrs) && !Number(timeoutObj.mnt) && !Number(timeoutObj.scnd)) {
+                        return setDate = new Date(setDate - (50))
+                    }
+                    handlePause()
+                    body.classList.add('glow-red')
+                    body.onclick = () => {
+                        body.classList.remove('glow-red')
+                        ring.reset()
+                    }
+                    actions[settings.action]()
+                })()
+            setTimeout(() => {
+                toast.innerHTML = ''
+            });
         })() :
         (() => {
-            if (!Number(timeoutObj.days) && !Number(timeoutObj.hrs) && !Number(timeoutObj.mnt) && !Number(timeoutObj.scnd)) {
-                return setDate = new Date(setDate - (50))
-            }
-            handlePause()
-            body.classList.add('glow-red')
-            body.onclick = () => {
-                body.classList.remove('glow-red')
-                ring.reset()
-            }
-            actions[settings.action]()
+            setTimeout(() => {
+            });
+            toast.innerHTML = `Listening for ${schedule}...`
         })()
 
     if (days < 10) {
@@ -170,27 +180,27 @@ function handleTimeOut() {
     const zeros = Number(length < 3 ? '0' : length < 2 ? '00' : length < 2 && '000')
 
     timeoutH1.innerHTML = `
-                    <h1 class="card-text col-12 pe-0" id="tmh1">
-                    <div id="hours" class="my-auto time-boxaf">
-                        ${days} <div class="small">Days</div>
-                    </div>
-                    <span class="my-auto seperator">:</span>
-                    <div id="hours" class="my-auto time-boxaf">
-                        ${hours} <div class="small">Hours</div>
-                    </div>
-                    <span class="my-auto seperator">:</span>
-                    <div id="minutes" class="my-auto time-boxaf">
-                        ${minutes} <div class="small">Minutes</div>
-                    </div>
-                    <span class="my-auto seperator">:</span>
-                    <div id="seconds" class="my-auto time-boxaf">
-                        ${seconds} <div class="small">Seconds</div>
-                    </div>
-                    <div class="d-flex">
-                        <div id="seconds" class="my-auto time-boxaf ms-auto small pe-4 pb-4">  ${milliseconds >= 950 ? 1 : zeros}${!milliseconds ? 0 : msStr.length < 2 ? '0' : ''}${!milliseconds ? 0 : msStr.length < 3 ? '0' : ''}${milliseconds}</div>
-                    </div>
-                </h1>
-        `
+                        <h1 class="card-text col-12 pe-0" id="tmh1">
+                        <div id="hours" class="my-auto time-boxaf">
+                            ${days} <div class="small">Days</div>
+                        </div>
+                        <span class="my-auto seperator">:</span>
+                        <div id="hours" class="my-auto time-boxaf">
+                            ${hours} <div class="small">Hours</div>
+                        </div>
+                        <span class="my-auto seperator">:</span>
+                        <div id="minutes" class="my-auto time-boxaf">
+                            ${minutes} <div class="small">Minutes</div>
+                        </div>
+                        <span class="my-auto seperator">:</span>
+                        <div id="seconds" class="my-auto time-boxaf">
+                            ${seconds} <div class="small">Seconds</div>
+                        </div>
+                        <div class="d-flex">
+                            <div id="seconds" class="my-auto time-boxaf ms-auto small pe-3 pe-sm-4 pb-4">  ${milliseconds >= 950 ? 1 : zeros}${!milliseconds ? 0 : msStr.length < 2 ? '0' : ''}${!milliseconds ? 0 : msStr.length < 3 ? '0' : ''}${milliseconds}</div>
+                        </div>
+                    </h1>
+            `
 }
 
 function handleTimer(manual = false) {
@@ -238,7 +248,7 @@ function handleTimer(manual = false) {
                         ${seconds} <div class="small">Seconds</div>
                     </div>
                     <div class="d-flex">
-                        <div id="seconds" class="my-auto time-boxaf small ms-auto pe-5 pb-3">${milliseconds >= 950 ? 1 : zeros}${!milliseconds ? 0 : msStr.length < 2 ? '0' : ''}${!milliseconds ? 0 : msStr.length < 3 ? '0' : ''}${milliseconds}</div>
+                        <div id="seconds" class="my-auto time-boxaf small ms-auto pe-3 pe-sm-4 pb-3">${milliseconds >= 950 ? 1 : zeros}${!milliseconds ? 0 : msStr.length < 2 ? '0' : ''}${!milliseconds ? 0 : msStr.length < 3 ? '0' : ''}${milliseconds}</div>
                     </div>
                 </h1>
         `

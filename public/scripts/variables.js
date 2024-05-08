@@ -60,3 +60,5 @@ let setDate = new Date(`0000-01-01${prstime}`);
 let timerBase = fixedTime
 let timerPrsRaw = fixedTime
 let setTimerBaseDate = new Date(`0000-01-01${timerBase}`);
+
+let isPlaying=true

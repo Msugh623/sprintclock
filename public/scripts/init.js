@@ -1,4 +1,8 @@
+init()
+
 function init() {
+    handleTheme()
+
     interval = setInterval(() => {
         theFunction()
     }, 50);
@@ -15,7 +19,6 @@ function init() {
         handleTheme()
     });
 
-    handleTheme()
     toggler.onclick = rmFuncs
     summoner.onclick = showFuncs
     settingsSummoner.onclick = toggleSettings
@@ -86,21 +89,24 @@ function init() {
     for (let i = 0; i < timeoutInputs.length; i++) {
         const changeInput = ({ target }) => {
             let name = target.name
-            let value = Number(target.value)
+            let value = target.value
 
-            name == 'mnt' && value > 59
-                && (() => value = 59)()
-            name == 'scnd' && value > 59
-                && (() => value = 59)()
-            name == 'hrs' && value > 23
-                && (() => value = 23)()
-            name == 'days' && value > 31
-                && (() => value = 31)()
+            name !== 'schdu' && (() => {
+                value = Number(target.value)
+                name == 'mnt' && value > 59
+                    && (() => value = 59)()
+                name == 'scnd' && value > 59
+                    && (() => value = 59)()
+                name == 'hrs' && value > 23
+                    && (() => value = 23)()
+                name == 'days' && value > 31
+                    && (() => value = 31)()
 
-            value = value < 10 ? `0${value}`.replace('-', '') : value
-            value = value || '00'
-            value = value.toString()
+                value = value < 10 ? `0${value}`.replace('-', '') : value
+                value = value || '00'
+                value = value.toString()
 
+            })()
             const obj = {
                 ...timeoutObj,
                 [name]: value
@@ -192,5 +198,26 @@ function init() {
                 theScript.classList.remove('d-none')
                 tester.classList.remove('d-none')
             })()
+    }
+
+    onkeyup = (e) => {
+        setTimeout(() => {
+            e.code == 'MediaPlayPause' &&
+                isPlaying ?
+                handlePause()
+                : handlePlay()
+            isPlaying = !isPlaying
+        });
+    }
+
+    html.onclick = ({ target }) => {
+        target.classList.toggle('html')
+    }
+    html.onmousemove = ({ target }) => {
+        target.classList.add('html')
+    }
+    body.onclick = () => {
+        body.classList.remove('glow-red')
+        ring.reset()
     }
 }
