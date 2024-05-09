@@ -211,6 +211,9 @@ function init() {
             })()
     }
 
+    body.onclick = ({ target }) => {
+        target.classList.toggle('html')
+    }
     html.onclick = ({ target }) => {
         target.classList.toggle('html')
     }
