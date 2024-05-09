@@ -167,6 +167,10 @@ body {
     left: 70px;
 }
 
+#InfoDocs {
+    left: 120px;
+}
+
 .levBr {
     position: fixed;
     bottom: 30px;
@@ -250,4 +254,8 @@ textarea {
 .inp{
     max-width: 100%;
     border: none;
+}
+
+a{
+    color: inherit!important;
 }

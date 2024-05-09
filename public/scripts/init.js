@@ -201,13 +201,14 @@ function init() {
     }
 
     onkeyup = (e) => {
-        setTimeout(() => {
-            e.code == 'MediaPlayPause' &&
+        e.code == 'MediaPlayPause' &&
+            (() => {
+                const localIsPlaying = isPlaying
                 isPlaying ?
-                handlePause()
-                : handlePlay()
-            isPlaying = !isPlaying
-        });
+                    handlePause()
+                    : handlePlay()
+                isPlaying = !Boolean(localIsPlaying)
+            })()
     }
 
     html.onclick = ({ target }) => {
