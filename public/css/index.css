@@ -259,3 +259,7 @@ textarea {
 a{
     color: inherit!important;
 }
+
+.html{
+    min-height: 99vh !important;
+}
