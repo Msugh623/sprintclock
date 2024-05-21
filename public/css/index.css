@@ -258,20 +258,15 @@ textarea {
     border: none;
 }
 
-<<<<<<< HEAD
 a {
     color: inherit !important;
 }
 
 .srcBox {
-    max-height: 850vh;
+    max-height: 85vh;
     overflow-y: auto;
-=======
-a{
-    color: inherit!important;
 }
 
 html{
     min-height: 99vh !important;
->>>>>>> 61db9b55b30986a8697e8ed84d2675f9f16e5d73
 }
