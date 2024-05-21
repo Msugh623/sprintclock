@@ -4,7 +4,8 @@
   "description": "A Clock app",
   "main": "index.html",
   "scripts": {
-    "deploy": "firebase deploy"
+    "deploy": "firebase deploy",
+    "dev": "node server.js"
   },
   "author": "chia ernest",
   "license": "ISC",

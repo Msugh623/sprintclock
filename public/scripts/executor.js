@@ -6,13 +6,11 @@ const actions = {
 
     },
     'script': () => {
-        const scriptSrc = Function(theScript.value)
-        setTimeout(() => {
-            try {
-                scriptSrc()
-            } catch (error) {
-                alert(`ERROR: ${error} @script.js `)
-            }
-        }, 50)
+        const scriptSrc = theScript.value
+        try {
+            Function(scriptSrc)()
+        } catch (error) {
+            alert(`ERROR: ${error} @ custom script`)
+        }
     }
 }

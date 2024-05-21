@@ -32,10 +32,10 @@ function init() {
         testValue(target.value)
     }
 
-    const changeScript = () => {
+    const changeScript = (completions = false) => {
         const lastCharacter = theScript.value[theScript.value.length - 1]
         let didComplete = false
-        setTimeout(() => {
+        completions && setTimeout(() => {
             lastCharacter == '(' && (() => {
                 theScript.value = theScript.value + ')'
                 didComplete = true
@@ -61,14 +61,12 @@ function init() {
                 didComplete = true
             })()
             localStorage.lastScript = theScript.value
-        }, 100);
-        didComplete && setTimeout(() => {
-            theScript.selectionStart = `${Number(theScript.selectionStart) - 1}`
-            theScript.selectionEnd = `${Number(theScript.selectionEnd) - 1}`
-        })
+            didComplete && (theScript.selectionEnd -= 1)
+        }, 5);
+
     }
 
-    theScript.onchange = changeScript
+    theScript.onchange = () => changeScript(true)
     theScript.onkeyup = changeScript
 
     for (let i = 0; i < options.length; i++) {
@@ -184,7 +182,7 @@ function init() {
     action.value = value
     settings.action = value
 
-    tester.onclick = () => actions.script()
+    tester.onclick = actions.script
 
     testValue(value)
 
@@ -210,18 +208,17 @@ function init() {
                 isPlaying = !Boolean(localIsPlaying)
             })()
     }
-
-    body.onclick = ({ target }) => {
-        target.classList.toggle('html')
-    }
     html.onclick = ({ target }) => {
         target.classList.toggle('html')
-    }
-    html.onmousemove = ({ target }) => {
-        target.classList.add('html')
     }
     body.onclick = () => {
         body.classList.remove('glow-red')
         ring.reset()
     }
+    themeSelect.onchange = ({ target }) => {
+        const value = Number(target.value);
+        theme = value;
+        handleTheme()
+    }
+    themeSelect.value = String(theme)
 }

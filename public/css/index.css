@@ -225,6 +225,7 @@ textarea {
     right: 0;
     top: 0;
     bottom: 0;
+    z-index: 3;
 }
 
 .panel>.d-flex {
@@ -240,22 +241,28 @@ textarea {
 .levBl,
 .levBr,
 .opt-vanishes {
+    transition: all, .3s;
+    opacity: 1;
+}
+
+.html .opt-vanishes,
+.html .levBl,
+.html .levBl,
+.html .levBr {
     transition: all, 1s;
     opacity: 0;
 }
 
-.html:hover .opt-vanishes,
-.html:hover .levBl,
-.html:hover .levBr {
-    transition: all, .3s;
-    opacity: 1 !important;
-}
-
-.inp{
+.inp {
     max-width: 100%;
     border: none;
 }
 
-a{
-    color: inherit!important;
+a {
+    color: inherit !important;
+}
+
+.srcBox {
+    max-height: 850vh;
+    overflow-y: auto;
 }
