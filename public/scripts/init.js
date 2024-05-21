@@ -216,7 +216,6 @@ function init() {
     }
 
     body.onclick = () => {
-        html.classList.toggle('html')
         body.classList.remove('glow-red')
         ring.reset()
     }
