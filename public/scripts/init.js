@@ -2,17 +2,11 @@ init()
 
 function init() {
     handleTheme()
+    let click = false
 
     interval = setInterval(() => {
         theFunction()
     }, 50);
-    let show = false;
-    card.addEventListener('click', () => {
-        show = !show;
-        show
-            ? box.style.opacity = '0'
-            : box.style.opacity = '1'
-    })
 
     themebtn.addEventListener("click", function () {
         theme++;
@@ -208,17 +202,30 @@ function init() {
                 isPlaying = !Boolean(localIsPlaying)
             })()
     }
+
     html.onclick = ({ target }) => {
+        click = true
         target.classList.toggle('html')
+        setTimeout(() => {
+            click = false
+        }, 100);
     }
+
+    html.onmousemove = ({ target }) => {
+        navigator.maxTouchPoints == 0 && target.classList.remove('html')
+    }
+
     body.onclick = () => {
+        html.classList.toggle('html')
         body.classList.remove('glow-red')
         ring.reset()
     }
+
     themeSelect.onchange = ({ target }) => {
         const value = Number(target.value);
         theme = value;
         handleTheme()
     }
+
     themeSelect.value = String(theme)
 }
