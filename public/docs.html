@@ -95,8 +95,9 @@
 
   fetch('https://sprintclock.onrender.com/datetime', {
       method:'GET'
-  }).then(res=>res.json)
+  }).then(res=>res.json())
   .then(res=>console.log(new Date(res)))
+  .catch(err=>console.error(err.message))
                                 </pre>
                             </div>
                             <code>/datetime/?GMT{+ or -}{number} </code> to get a date Number of a particular timezone
@@ -106,8 +107,9 @@
 
   fetch('https://sprintclock.onrender.com/datetime?GMT+1', {
       method:'GET'
-  }).then(res=>res.json)
+  }).then(res=>res.json())
   .then(res=>console.log(new Date(res)))
+  .catch(err=>console.error(err.message))
                                 </pre>
                             </div>
                         </div>
@@ -207,7 +209,7 @@
                                                 <a href="https://sprintnotes.web.app"> Sprint Notes</a>
                                             </h6>
                                             <h6>
-                                                <a href="https://sprintdino.onrender.com"> Sprint Dino - Game</a>
+                                                <a href="https://sprintdino.web.app"> Sprint Dino - Game</a>
                                             </h6>
                                         </div>
                                     </div>
