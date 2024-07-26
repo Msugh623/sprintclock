@@ -82,6 +82,36 @@
                             this is a counter that allow you to add stamps
                         </div>
                     </div>
+                    <div class="shadow-sm">
+                        <h5 class="mt-3">
+                            Time Server
+                        </h5>
+                        <hr>
+                        <div>
+                            <code>/datetime</code> returns a number utc time GMT+0 which when passed into a date
+                            constructor, returns a date object .eg.
+                            <div class="my-3 shadow-md  ">
+                                <pre class="bg-dark rounded">
+
+  fetch('https://sprintclock.onrender.com/datetime', {
+      method:'GET'
+  }).then(res=>res.json)
+  .then(res=>console.log(new Date(res)))
+                                </pre>
+                            </div>
+                            <code>/datetime/?GMT{+ or -}{number} </code> to get a date Number of a particular timezone
+                            .eg.
+                            <div class="my-3 shadow-md  ">
+                                <pre class="bg-dark rounded">
+
+  fetch('https://sprintclock.onrender.com/datetime?GMT+1', {
+      method:'GET'
+  }).then(res=>res.json)
+  .then(res=>console.log(new Date(res)))
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
                     </p>
                     <h4>
                         Knowing the UI
@@ -127,23 +157,6 @@
                                 ⚙
                             </div>
                             " at the Bottom Left corner
-                        </div>
-                    </div>
-                    <div class="shadow-sm">
-                        <h5 class="mt-3">
-                            Time Server
-                        </h5>
-                        <div>
-                            <code>/datetime</code> returns a number utc time GMT+0 which when passed into a date
-                            constructor, returns a date object .eg.
-                            <div class="my-3 shadow-md rounded "> 
-<pre>
-    fetch('https://sprintclock.onrender.com/datetime', {
-        method:'GET'
-    }).then(res=>res.json)
-    .then(res=>console.log(res))
-</pre>
-                            </div>
                         </div>
                     </div>
                     <h4>
