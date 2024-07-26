@@ -2,8 +2,6 @@ init()
 
 function init() {
     handleTheme()
-    let click = false
-
     interval = setInterval(() => {
         theFunction()
     }, 50);
@@ -193,7 +191,7 @@ function init() {
     }
 
     onkeyup = (e) => {
-        e.code == 'MediaPlayPause' &&
+        e.code == 'Space' &&
             (() => {
                 const localIsPlaying = isPlaying
                 isPlaying ?

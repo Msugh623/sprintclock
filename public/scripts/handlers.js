@@ -1,4 +1,3 @@
-
 function handleTheme() {
     if (theme % 2 === 0) {
         colorScheme.setAttribute('content', 'dark')

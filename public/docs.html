@@ -18,7 +18,8 @@
     <nav class="navbar nav px-1 px-sm-2 shadow-sm src mb-3">
         <h3>
             <a href="/" class="nav-logo">
-                <img src="/media/sprintclock.png" class="img-fluid me-2" width="40px" alt="Sprint Clock Logo">Sprint Clock
+                <img src="/media/sprintclock.png" class="img-fluid me-2" width="40px" alt="Sprint Clock Logo">Sprint
+                Clock
             </a> -
             Docs
         </h3>
@@ -126,6 +127,23 @@
                                 ⚙
                             </div>
                             " at the Bottom Left corner
+                        </div>
+                    </div>
+                    <div class="shadow-sm">
+                        <h5 class="mt-3">
+                            Time Server
+                        </h5>
+                        <div>
+                            <code>/datetime</code> returns a number utc time GMT+0 which when passed into a date
+                            constructor, returns a date object .eg.
+                            <div class="my-3 shadow-md rounded "> 
+<pre>
+    fetch('https://sprintclock.onrender.com/datetime', {
+        method:'GET'
+    }).then(res=>res.json)
+    .then(res=>console.log(res))
+</pre>
+                            </div>
                         </div>
                     </div>
                     <h4>
