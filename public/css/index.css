@@ -80,10 +80,19 @@ body {
     font-weight: 500;
 }
 
-@media (max-width:500px) {
+@media (max-width:900px) {
     .time-boxaf {
         position: relative;
-        font-size: 15vw;
+        font-size: 14.5vw;
+        display: inline-flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width:600px) {
+    .time-boxaf {
+        position: relative;
+        font-size: 14vw;
         display: inline-flex;
         flex-direction: column;
     }
