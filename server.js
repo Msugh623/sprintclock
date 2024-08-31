@@ -21,4 +21,19 @@ app.get('/datetime', async (req, res) => {
 
 app.listen(port, () => {
     console.log(`Server Runnin on port: ${port}`)
+
+    setInterval(() => {
+        setTimeout(() => {
+            (async () => {
+                try {
+                    const _ = await fetch('https://sprintclock.onrender.com', {
+                        method: 'GET',
+                    })
+                    console.log(`Ping: ${(new Date()).toString()}`)
+                } catch (err) {
+                    console.error(`PINGERROR: ${err}`)
+                }
+            })()
+        }, [Math.floor(Math.random() * 1000 * 20)])
+    }, 1000 * 60 * 10);
 })
