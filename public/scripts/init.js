@@ -267,4 +267,15 @@ function init() {
   } else if (pathname == "/timer") {
     options[3].click();
   }
+
+  // Prevent Sleep
+  function preventScreenSleep() {
+    window.addEventListener("blur", function () {
+      // Trigger an event to prevent the screen from sleeping
+      window.dispatchEvent(new Event("mousemove"));
+    });
+  }
+
+  // Call the function to start preventing screen sleep
+  preventScreenSleep();
 }
