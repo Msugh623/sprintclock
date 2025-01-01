@@ -273,9 +273,12 @@ function init() {
     window.addEventListener("blur", function () {
       // Trigger an event to prevent the screen from sleeping
       window.dispatchEvent(new Event("mousemove"));
+      window.dispatchEvent(new Event("touchstart"));
+      this.setTimeout(() => {
+        window.dispatchEvent(new Event("touchend"));
+      }, 50);
     });
   }
-
   // Call the function to start preventing screen sleep
   preventScreenSleep();
 }
