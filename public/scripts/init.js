@@ -247,8 +247,17 @@ function init() {
         const prs = new Date(
           location.search.replace("?dt=", "").replace("%3A", ":")
         );
-        setDate = new Date(Number(prs) - Number(new Date()) - 1000 * 60 * 60);
-        handleTimeOut();
+        const trim = new Date(
+          Number(prs) - Number(new Date()) - 1000 * 60 * 60
+        );
+        trim.setMilliseconds(0);
+        setDate = trim;
+        timeoutObj = {
+          days: "" + setDate.getDate() + 1,
+          hrs: "" + setDate.getHours(),
+          mnt: "" + setDate.getMinutes(),
+          scnd: "" + setDate.getSeconds(),
+        };
         handlePlay();
       })();
   } else if (pathname == "/timer") {
