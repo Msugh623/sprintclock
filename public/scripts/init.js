@@ -205,6 +205,10 @@ function init() {
         isPlaying ? handlePause() : handlePlay();
         isPlaying = !Boolean(localIsPlaying);
       })();
+    e.code == "Escape" &&
+      (() => {
+        html.classList.toggle("html");
+      })();
   };
 
   html.onclick = ({ target }) => {
