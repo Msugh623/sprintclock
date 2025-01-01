@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="google-site-verification"
+      content="sLzlzUBLNcb1eDx2jn1UEWCGFBXnP1746Koea-20Sjs"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" id="clscheme" />
+    <title>
+      Remote Countdown - Create and Share countowns with your team, collueges,
+      friends and family
+    </title>
+    <link rel="icon" href="/media/sprintclock.png" />
+    <link rel="stylesheet" href="/css/bootstrap@5.2.0.min.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <script defer src="/scripts/domSelections.js"></script>
+    <script defer src="/scripts/variables.js"></script>
+    <script defer src="/scripts/handlers.js"></script>
+    <script defer src="/scripts/init.js"></script>
+  </head>
+
+  <body id="body" class="">
+    <nav class="navbar nav pt-3 px-1 px-sm-2 shadow-lg border-bottom src mb-3" style="z-index: 5;">
+      <h3>
+        <a href="/" class="nav-logo">
+          <img
+            src="/media/sprintclock.png"
+            class="img-fluid me-2"
+            width="40px"
+            alt="Sprint Clock Logo"
+          />Sprint Clock
+        </a>
+        - Remote Countdown
+      </h3>
+    </nav>
+    <div>
+      <nav id="settings" class="panel">
+        <div class="row h-100">
+          <form
+            class="col-10 col-sm-6 col-md-5 col-xl-4 m-auto my-auto shadow-lg border p-3 rounded src srcBox"
+            method="get"
+            action="/countdown"
+          >
+            <h2 class="fs-4">Create a Remote Countdown</h2>
+            <details>
+              <p>
+                A Remote countdown continues the countdown even when you have
+                left the page. When You click "start" the link to the countdown
+                is copied in your clipboard. Use the link to access the
+                countdown from anywhere, share the link to people who you want
+                to join you on your amazing countdown. The countdown is relative
+                to the viewer's timezone, this allows viewers from different
+                timezones to share the same countdown relative to their time.
+              </p>
+            </details>
+            <label class="mt-2 d-flex flex-column form-control border px-0">
+              <small class="small text-truncate px-2 ms-1">
+                Set Countdown Deadline
+              </small>
+              <input
+                type="datetime-local"
+                id="dt"
+                name="dt"
+                placeholder=""
+                class="border-0 bg-none form-control w-100"
+              />
+            </label>
+            <div class="d-flex">
+              <button
+                class="btn-primary btn ms-auto mt-2"
+                id="saver"
+                onclick="(()=>{
+                navigator.clipboard.writeText(location.origin+'/countdown?dt='+document.getElementById('dt').value)
+              })()"
+              >
+                Start Countdown
+              </button>
+            </div>
+          </form>
+        </div>
+      </nav>
+
+      <!-- Show Options -->
+      <a href="/" class="btn btn-primary bg-none levBl" id="summoner" style="z-index: 5;"> /\ </a>
+      <a
+        href="/docs.html"
+        class="btn btn-primary bg-none levBl"
+        id="settingsSummoner"
+        style="z-index: 5;"
+      >
+        !
+      </a>
+    </div>
+  </body>
+</html>
