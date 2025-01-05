@@ -1,3 +1,4 @@
 ## Sprint Clock
 
-This is an awsome app built souly from interest and passion, it is used to display time on big screens for wierd reasons
+
+Sprintclock is an online timer and countdown tool that offers flexible features like custom alarms, timeouts, and a remote countdown for synchronized timers across devices. It includes both light and dark themes and provides a straightforward interface to manage countdowns, timers, and related settings. The app also includes documentation to guide users.
